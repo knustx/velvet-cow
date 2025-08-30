@@ -1,0 +1,197 @@
+/* Safari Compatibility Layer - Only loads in Safari */
+@supports (-webkit-hyphens: none) and (not (-ms-accelerator: true)) and (not (-moz-appearance: none)) {
+  /* Layout fixes */
+  .container {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Flexbox and Grid */
+  .flex { display: flex !important; }
+  .grid { display: grid !important; }
+  .flex-col { flex-direction: column !important; }
+  .flex-grow { flex-grow: 1 !important; }
+  .items-center { align-items: center !important; }
+  .justify-center { justify-content: center !important; }
+  .justify-between { justify-content: space-between !important; }
+  .text-center { text-align: center !important; }
+  
+  /* Grid Columns */
+  @media (min-width: 768px) {
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .md\:col-span-2 { grid-column: span 2 / span 2 !important; }
+    .md\:flex { display: flex !important; }
+    .md\:hidden { display: none !important; }
+  }
+  
+  /* Spacing */
+  .p-4 { padding: 1rem !important; }
+  .p-8 { padding: 2rem !important; }
+  .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+  .py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+  .py-6 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .py-8 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  .py-12 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .py-16 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  .px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+  .px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .pt-8 { padding-top: 2rem !important; }
+  .pb-20 { padding-bottom: 5rem !important; }
+  
+  /* Margins */
+  .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+  .mb-2 { margin-bottom: 0.5rem !important; }
+  .mb-4 { margin-bottom: 1rem !important; }
+  .mb-6 { margin-bottom: 1.5rem !important; }
+  .mb-8 { margin-bottom: 2rem !important; }
+  .mb-12 { margin-bottom: 3rem !important; }
+  .mt-6 { margin-top: 1.5rem !important; }
+  .mt-8 { margin-top: 2rem !important; }
+  .mr-2 { margin-right: 0.5rem !important; }
+  
+  /* Gaps */
+  .gap-8 { gap: 2rem !important; }
+  .gap-6 { gap: 1.5rem !important; }
+  .gap-4 { gap: 1rem !important; }
+  .gap-2 { gap: 0.5rem !important; }
+  .space-x-6 > * + * { margin-left: 1.5rem !important; }
+  .space-x-8 > * + * { margin-left: 2rem !important; }
+  .space-y-2 > * + * { margin-top: 0.5rem !important; }
+  .space-y-3 > * + * { margin-top: 0.75rem !important; }
+  
+  /* Typography */
+  .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
+  .text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
+  .text-lg { font-size: 1.125rem !important; line-height: 1.75rem !important; }
+  .text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+  .text-2xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+  .text-3xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }
+  .text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .font-bold { font-weight: 700 !important; }
+  .font-semibold { font-weight: 600 !important; }
+  .font-medium { font-weight: 500 !important; }
+  .leading-relaxed { line-height: 1.625 !important; }
+  
+  /* Font Families */
+  .font-sans { 
+    font-family: var(--font-quattrocento), serif !important;
+  }
+  .font-serif { 
+    font-family: var(--font-cinzel), serif !important;
+  }
+  
+  /* Colors - Background */
+  .bg-background { background-color: #313131 !important; } /* Changed to dark for sections */
+  .bg-light { background-color: #F2F2F2 !important; }
+  .bg-primary { background-color: #D9AD77 !important; }
+  .bg-secondary { background-color: #733614 !important; }
+  .bg-dark { background-color: #313131 !important; }
+  .bg-muted { background-color: #8C8C8C !important; }
+  
+  /* Colors - Text */
+  .text-primary { color: #D9AD77 !important; }
+  .text-secondary { color: #733614 !important; }
+  .text-dark { color: #313131 !important; }
+  .text-light { color: #F2F2F2 !important; }
+  .text-muted { color: #8C8C8C !important; }
+  .text-foreground { color: var(--foreground) !important; }
+  .text-background { color: var(--background) !important; }
+  
+  /* Borders */
+  .border { border-width: 1px !important; }
+  .border-2 { border-width: 2px !important; }
+  .border-b-2 { border-bottom-width: 2px !important; }
+  .border-t { border-top-width: 1px !important; }
+  .border-solid { border-style: solid !important; }
+  .border-primary { border-color: #D9AD77 !important; }
+  .border-secondary { border-color: #733614 !important; }
+  .border-muted { border-color: #8C8C8C !important; }
+  .border-transparent { border-color: transparent !important; }
+  
+  /* Border Radius */
+  .rounded { border-radius: 0.25rem !important; }
+  .rounded-lg { border-radius: 0.5rem !important; }
+  .rounded-full { border-radius: 9999px !important; }
+  
+  /* Sizing */
+  .w-full { width: 100% !important; }
+  .w-24 { width: 6rem !important; }
+  .h-1 { height: 0.25rem !important; }
+  .h-full { height: 100% !important; }
+  .h-10 { height: 2.5rem !important; }
+  .h-12 { height: 3rem !important; }
+  .min-h-screen { min-height: 100vh !important; }
+  .max-w-2xl { max-width: 42rem !important; }
+  .max-w-4xl { max-width: 56rem !important; }
+  .max-w-6xl { max-width: 72rem !important; }
+  
+  /* Display */
+  .hidden { display: none !important; }
+  .block { display: block !important; }
+  .inline-block { display: inline-block !important; }
+  
+  /* Position */
+  .relative { position: relative !important; }
+  .absolute { position: absolute !important; }
+  
+  /* Transitions */
+  .transition-colors {
+    transition-property: color, background-color, border-color !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+  }
+  
+  /* Hover States */
+  .hover\:text-primary:hover { color: #D9AD77 !important; }
+  .hover\:text-secondary:hover { color: #733614 !important; }
+  .hover\:bg-primary:hover { background-color: #D9AD77 !important; }
+  .hover\:bg-secondary:hover { background-color: #733614 !important; }
+  .hover\:bg-light:hover { background-color: #F2F2F2 !important; }
+  .hover\:border-primary:hover { border-color: #D9AD77 !important; }
+  .hover\:underline:hover { text-decoration: underline !important; }
+  .hover\:underline-offset-4:hover { text-underline-offset: 4px !important; }
+  
+  /* Focus States */
+  .focus\:border-primary:focus { border-color: #D9AD77 !important; }
+  .focus\:outline-none:focus { outline: 2px solid transparent !important; outline-offset: 2px !important; }
+  
+  /* Form Elements */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+  
+  .resize-vertical { resize: vertical !important; }
+  
+  /* Miscellaneous */
+  .antialiased { 
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+  
+  .list-inside { list-style-position: inside !important; }
+  .list-decimal { list-style-type: decimal !important; }
+  
+  /* Additional responsive utilities */
+  @media (min-width: 640px) {
+    .sm\:text-left { text-align: left !important; }
+    .sm\:items-start { align-items: flex-start !important; }
+    .sm\:flex-row { flex-direction: row !important; }
+    .sm\:w-auto { width: auto !important; }
+    .sm\:h-12 { height: 3rem !important; }
+    .sm\:px-5 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .sm\:p-20 { padding: 5rem !important; }
+    .sm\:text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
+  }
+  
+  @media (min-width: 768px) {
+    .md\:w-\[158px\] { width: 158px !important; }
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  }
+}
