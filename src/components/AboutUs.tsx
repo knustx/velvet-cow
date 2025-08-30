@@ -1,3 +1,5 @@
+import SectionDivider from "@/components/SectionDivider";
+
 export default function AboutUs() {
   return (
     <section id="about" className="py-16 bg-light">
@@ -6,7 +8,7 @@ export default function AboutUs() {
           <h2 className="font-serif text-4xl font-bold text-secondary mb-8">
             About Us
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <SectionDivider />
           <p className="font-sans text-lg text-dark leading-relaxed mb-6">
             Welcome to Velvet Cow, where elegance meets excellence. We specialize in creating 
             unforgettable experiences through our carefully curated packages and services.

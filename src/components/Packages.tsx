@@ -1,6 +1,7 @@
 "use client";
 
 import PackageCard from "@/components/PackageCard";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Packages() {
   const packages = [
@@ -33,7 +34,7 @@ export default function Packages() {
           <h2 className="font-serif text-4xl font-bold text-primary mb-8">
             Our Packages
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <SectionDivider />
           <p className="font-sans text-lg text-light max-w-2xl mx-auto">
             Choose the perfect package tailored to your needs and budget.
           </p>

@@ -1,3 +1,5 @@
+import SectionDivider from "@/components/SectionDivider";
+
 export default function ContactForm() {
   return (
     <section id="contact" className="py-16 bg-light">
@@ -7,7 +9,7 @@ export default function ContactForm() {
             <h2 className="font-serif text-4xl font-bold text-secondary mb-8">
               Get In Touch
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <SectionDivider />
             <p className="font-sans text-lg text-dark">
               Ready to start your journey with us? We'd love to hear from you.
             </p>
