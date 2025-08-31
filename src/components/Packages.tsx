@@ -6,24 +6,23 @@ import SectionDivider from "@/components/SectionDivider";
 export default function Packages() {
   const basePackage = {
     name: "The Fundamentals",
-    price: "$750",
+    price: "$750 Flat",
     features: [
-      "Bartender for 50 guests for UP to 4 hours*",
+      "Bartender for 50 guests for up to 4 hours*",
       "Bar set up and tear down",
       "Bar tools",
       "Sugar Cane Straws",
-      "Acrylic Plastic Cups*",
-      "White Napkins*",
+      "Acrylic Plastic Cups**",
+      "White Napkins**",
       "Ice Delivery and coolers",
-      "Bar Set-up & Breakdown*",
+      "Bar Set-up & Breakdown",
       "Event & Bar Consultation 30 minutes",
       "Shopping list for alcohol recommendations",
       "Complete liability insurance coverage"
     ],
     footnotes: [
       "*Additional bartender required for more than 50 guests at $50 hourly",
-      "*upgrades available",
-      "*customized Velvet Cow cart available for $300 add-on"
+      "**Upgrades available"
     ]
   };
 
@@ -65,17 +64,18 @@ export default function Packages() {
       features: [
         "Beer & Wine Pour",
         "Choice of 4 House Drinks", 
+        "1 Barrel Batcher", 
         "Premium & Basic Garnishes"
       ]
     },
     {
-      name: "The Velvet Reserve",
+      name: "Velvet Reserve",
       tagline: "Upscale & Inclusive",
       price: "$13 per Guest",
       features: [
         "Beer & Wine Pour",
         "Full Menu of House Drinks", 
-        "2 Barrel Batchers", 
+        "Choice of 2 Barrel Batchers", 
         "Premium & Basic Garnishes"
       ]
     },
@@ -89,13 +89,18 @@ export default function Packages() {
   return (
     <section id="packages" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="font-serif text-4xl font-bold text-primary mb-8">
             Our Packages
           </h2>
           <SectionDivider />
-          <p className="font-sans text-lg text-light max-w-2xl mx-auto">
-            Our Bar Fundamentals package is the foundation of your event's beverage service, covering all the essentials for a seamless experience.
+        </div>
+        
+        <div className="text-left max-w-4xl mx-auto mb-12">
+          <p className="font-sans text-lg text-light leading-relaxed">
+            Choose the perfect combination of services for your event. Our base package provides everything 
+            you need for professional bartending service, while our add-on packages let you customize the 
+            drink experience to match your celebration's style and budget.
           </p>
         </div>
         

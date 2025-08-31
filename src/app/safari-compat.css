@@ -19,6 +19,7 @@
   .justify-center { justify-content: center !important; }
   .justify-between { justify-content: space-between !important; }
   .text-center { text-align: center !important; }
+  .text-left { text-align: left !important; }
   
   /* Grid Columns */
   @media (min-width: 768px) {

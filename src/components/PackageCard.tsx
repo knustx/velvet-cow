@@ -28,7 +28,7 @@ export default function PackageCard({
     <div className={`bg-light rounded-lg p-6 border-2 ${borderClass} ${!isMultiCol ? 'hover:border-primary' : ''} transition-colors h-full flex flex-col`}>
       <div className="flex-grow">
         <div className="text-center mb-4">
-          <h3 className="font-serif text-xl font-bold text-secondary mb-2">
+          <h3 className="font-serif text-2xl font-bold text-secondary mb-2">
             {name}
           </h3>
           <div className="text-2xl font-bold text-primary mb-4">
@@ -42,7 +42,7 @@ export default function PackageCard({
             {/* Left column - first half of features */}
             <ul className="font-sans space-y-2">
               {features.slice(0, Math.ceil(features.length / 2)).map((feature, index) => (
-                <li key={index} className="text-dark flex items-start text-sm">
+                <li key={index} className="text-dark flex items-start text-base">
                   <span className="text-primary mr-2 mt-1">•</span>
                   <span>{feature}</span>
                 </li>
@@ -51,7 +51,7 @@ export default function PackageCard({
             {/* Right column - second half of features */}
             <ul className="font-sans space-y-2">
               {features.slice(Math.ceil(features.length / 2)).map((feature, index) => (
-                <li key={index + Math.ceil(features.length / 2)} className="text-dark flex items-start text-sm">
+                <li key={index + Math.ceil(features.length / 2)} className="text-dark flex items-start text-base">
                   <span className="text-primary mr-2 mt-1">•</span>
                   <span>{feature}</span>
                 </li>
@@ -61,7 +61,7 @@ export default function PackageCard({
         ) : (
           <ul className="font-sans space-y-2">
             {features.map((feature, index) => (
-              <li key={index} className="text-dark flex items-start text-sm">
+              <li key={index} className="text-dark flex items-start text-base">
                 <span className="text-primary mr-2 mt-1">✓</span>
                 <span>{feature}</span>
               </li>
@@ -72,7 +72,7 @@ export default function PackageCard({
         {/* Footnotes - always single column, below features */}
         {footnotes.length > 0 && (
           <div className="mt-4 pt-3 border-t border-muted">
-            <div className="font-sans text-xs text-muted space-y-1">
+            <div className="font-sans text-sm text-muted space-y-1">
               {footnotes.map((footnote, index) => (
                 <p key={index}>{footnote}</p>
               ))}
