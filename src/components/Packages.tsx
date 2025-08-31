@@ -110,46 +110,64 @@ export default function Packages() {
             </p>
           </div>
           
-          {/* 3x2 Grid: Row 1 - Base package (2 cols), Row 2 - Add-ons (3x1 cols) */}
-          <div className="grid md:grid-cols-3 md:grid-rows-2 gap-6 max-w-6xl mx-auto">
-            {/* Row 1: Base package spans 2 columns */}
-            <div className="md:col-span-2">
-              <PackageCard
-                name={basePackage.name}
-                price={basePackage.price}
-                features={basePackage.features}
-                footnotes={basePackage.footnotes}
-                size="2x"
-                selectable={false}
-              />
-            </div>
-            
-            {/* Empty cell in row 1, column 3 */}
-            <div className="hidden md:block"></div>
-            
-            {/* Row 2: Add-On Packages - each takes 1 column */}
-            {addOnPackages.map((pkg, index) => (
-              <PackageCard
-                key={index}
-                name={pkg.name}
-                price={pkg.price}
-                features={pkg.features}
-                size="1x"
-                selectable={true}
-                onSelect={() => handlePackageSelect(pkg.name)}
-              />
-            ))}
+          {/* The Fundamentals - Centered */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <PackageCard
+              name={basePackage.name}
+              price={basePackage.price}
+              features={basePackage.features}
+              footnotes={basePackage.footnotes}
+              size="2x"
+              selectable={false}
+            />
           </div>
           
-          {/* Add-on packages header - only visible on mobile */}
-          <div className="text-center mt-12 mb-8 md:hidden">
-            <h3 className="font-serif text-xl font-bold text-primary mb-2">
+          {/* Add-on packages header */}
+          <div className="text-center mb-8">
+            <h3 className="font-serif text-2xl font-bold text-primary mb-4">
               Add-On Packages
             </h3>
-            <p className="font-sans text-sm text-light">
+            <p className="font-sans text-light">
               Per-person enhancements
             </p>
           </div>
+          
+          {/* Add-On Packages - Split into 2 rows: 2 centered on top, 3 on bottom */}
+          <div className="max-w-4xl mx-auto">
+            {/* First row - 2 packages centered */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-6">
+              {addOnPackages.slice(0, 2).map((pkg, index) => (
+                <div key={index} className="h-full">
+                  <PackageCard
+                    name={pkg.name}
+                    price={pkg.price}
+                    features={pkg.features}
+                    size="1x"
+                    selectable={true}
+                    onSelect={() => handlePackageSelect(pkg.name)}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Second row - 3 packages */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {addOnPackages.slice(2).map((pkg, index) => (
+                <div key={index + 2} className="h-full">
+                  <PackageCard
+                    name={pkg.name}
+                    price={pkg.price}
+                    features={pkg.features}
+                    size="1x"
+                    selectable={true}
+                    onSelect={() => handlePackageSelect(pkg.name)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Remove mobile-only add-on packages header as we now have a dedicated header for all screen sizes */}
         </div>
       </div>
     </section>
