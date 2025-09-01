@@ -260,8 +260,10 @@ export default function Packages() {
                   return (
                     <div 
                       key={item.id}
-                      className={`bg-light rounded-lg p-4 border cursor-pointer transition-colors ${
-                        isSelected ? 'border-primary bg-primary' : 'border-muted hover:border-primary'
+                      className={`bg-light rounded-lg p-4 cursor-pointer transition-colors ${
+                        isSelected 
+                          ? 'border-white border-3 bg-primary' 
+                          : 'border-2 border-muted hover:border-primary'
                       }`}
                       onClick={() => handlePremiumToggle(item.id)}
                     >

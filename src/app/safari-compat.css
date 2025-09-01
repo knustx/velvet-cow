@@ -122,12 +122,14 @@
   /* Borders */
   .border { border-width: 1px !important; }
   .border-2 { border-width: 2px !important; }
+  .border-3 { border-width: 3px !important; }
   .border-b-2 { border-bottom-width: 2px !important; }
   .border-t { border-top-width: 1px !important; }
   .border-solid { border-style: solid !important; }
   .border-primary { border-color: #D9AD77 !important; }
   .border-secondary { border-color: #563a0e !important; }
   .border-muted { border-color: #8C8C8C !important; }
+  .border-white { border-color: #ffffff !important; }
   .border-transparent { border-color: transparent !important; }
   .pt-4 { padding-top: 1rem !important; }
   .pt-8 { padding-top: 2rem !important; }

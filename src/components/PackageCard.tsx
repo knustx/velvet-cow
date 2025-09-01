@@ -26,25 +26,28 @@ export default function PackageCard({
   const isMultiCol = is2x || is3x;
   
   // Determine border and background styling based on selection state
-  let borderClass, bgClass;
+  let borderClass, bgClass, accentBorder;
   
   if (isMultiCol) {
     // Base package - always in selected state (gold background)
     borderClass = 'border-primary';
     bgClass = 'bg-primary';
+    accentBorder = 'border-white border-3';
   } else if (selected) {
     // Selected add-on package
     borderClass = 'border-primary';
     bgClass = 'bg-primary';
+    accentBorder = 'border-white border-3';
   } else {
     // Unselected add-on package
     borderClass = 'border-muted hover:border-primary';
     bgClass = 'bg-light hover:bg-gray-50';
+    accentBorder = 'border-2';
   }
   
   return (
     <div 
-      className={`${bgClass} rounded-lg p-6 border-2 ${borderClass} transition-colors h-full flex flex-col ${
+      className={`${bgClass} rounded-lg p-6 ${accentBorder} ${borderClass} transition-colors h-full flex flex-col ${
         selectable && !isMultiCol ? 'cursor-pointer' : 'cursor-default'
       }`}
       onClick={selectable && onSelect && !isMultiCol ? onSelect : undefined}

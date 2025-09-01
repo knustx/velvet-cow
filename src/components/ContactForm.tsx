@@ -1,6 +1,34 @@
+"use client";
+
+import { useState } from "react";
 import SectionDivider from "@/components/SectionDivider";
 
 export default function ContactForm() {
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const formatPhoneNumber = (value: string) => {
+    // Remove all non-numeric characters
+    const numbersOnly = value.replace(/\D/g, "");
+    
+    // Limit to 10 digits
+    const limitedNumbers = numbersOnly.slice(0, 10);
+    
+    // Format based on length
+    if (limitedNumbers.length === 0) {
+      return "";
+    } else if (limitedNumbers.length <= 3) {
+      return `(${limitedNumbers}`;
+    } else if (limitedNumbers.length <= 6) {
+      return `(${limitedNumbers.slice(0, 3)}) ${limitedNumbers.slice(3)}`;
+    } else {
+      return `(${limitedNumbers.slice(0, 3)}) ${limitedNumbers.slice(3, 6)}-${limitedNumbers.slice(6)}`;
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhoneNumber(formatted);
+  };
   return (
     <section id="contact" className="py-16 bg-light">
       <div className="container mx-auto px-4">
@@ -24,7 +52,7 @@ export default function ContactForm() {
                 type="text"
                 id="firstName"
                 name="firstName"
-                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
                 required
               />
             </div>
@@ -37,12 +65,12 @@ export default function ContactForm() {
                 type="text"
                 id="lastName"
                 name="lastName"
-                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
                 required
               />
             </div>
             
-            <div className="md:col-span-2">
+            <div>
               <label htmlFor="email" className="font-sans block text-dark mb-2">
                 Email Address *
               </label>
@@ -50,8 +78,23 @@ export default function ContactForm() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
                 required
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="phone" className="font-sans block text-dark mb-2">
+                Phone Number (optional)
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={phoneNumber}
+                onChange={handlePhoneChange}
+                placeholder="(___) ___-____"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
               />
             </div>
             
@@ -63,8 +106,8 @@ export default function ContactForm() {
                 id="message"
                 name="message"
                 rows={6}
-                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none resize-vertical"
-                placeholder="Tell us about your project or ask us a question..."
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none resize-vertical text-dark"
+                placeholder="Let us know how we can tailor your experience to meet your unique needs..."
                 required
               ></textarea>
             </div>
