@@ -123,9 +123,9 @@ export default function PriceCalculator({
       
       <div className="px-4">
         {/* Guest Count Input */}
-        <div className="mb-4">
-          <label htmlFor="guest-count" className="block font-sans text-sm font-semibold text-secondary mb-2">
-            Number of Guests
+        <div className="mb-4 flex items-center gap-3">
+          <label htmlFor="guest-count" className="font-sans text-sm font-semibold text-secondary">
+            Number of Guests:
           </label>
           <input
             type="number"
@@ -133,7 +133,7 @@ export default function PriceCalculator({
             min="1"
             value={guestCount}
             onChange={handleGuestCountChange}
-            className="w-32 px-3 py-2 border-2 border-muted rounded-md font-sans text-secondary bg-white focus:border-primary focus:outline-none"
+            className="w-16 px-2 py-2 text-center border-2 border-muted rounded-md font-sans text-secondary bg-white focus:border-primary focus:outline-none"
           />
         </div>
 
@@ -144,13 +144,13 @@ export default function PriceCalculator({
           </h6>
         <div className="space-y-2 font-sans text-sm">
           <div className="flex justify-between">
-            <span className="text-muted">Foundations Package:</span>
+            <span className="text-muted pl-4">Foundations Package</span>
             <span className="text-secondary font-semibold">${formatCurrency(costs.foundationsCost)}</span>
           </div>
           
           <div className="flex justify-between">
-            <span className="text-muted">
-              {drinkPackages[selectedPackageIndex].name} ({guestCount.toLocaleString('en-US')} guests @ ${extractPrice(drinkPackages[selectedPackageIndex].price).toFixed(2)} per guest):
+            <span className="text-muted pl-4">
+              {drinkPackages[selectedPackageIndex].name} ({guestCount.toLocaleString('en-US')} guests @ ${extractPrice(drinkPackages[selectedPackageIndex].price).toFixed(2)} per guest)
             </span>
             <span className="text-secondary font-semibold">
               ${formatCurrency(costs.totalPackageCost)}
@@ -160,8 +160,8 @@ export default function PriceCalculator({
           {/* Additional Bartenders */}
           {costs.additionalBartenders > 0 && (
             <div className="flex justify-between">
-              <span className="text-muted">
-                Additional Bartenders ({costs.additionalBartenders} × $50 × 4 hours):
+              <span className="text-muted pl-4">
+                Additional Bartenders ({costs.additionalBartenders} × $50 × 4 hours)
               </span>
               <span className="text-secondary font-semibold">
                 ${formatCurrency(costs.bartenderCost)}
@@ -188,8 +188,8 @@ export default function PriceCalculator({
               {/* Flat Fee Items First */}
               {costs.flatFeeItems.map(item => (
                 <div key={item.id} className="flex justify-between">
-                  <span className="text-muted">
-                    {item.name} (flat fee):
+                  <span className="text-muted pl-4">
+                    {item.name} (flat fee)
                   </span>
                   <span className="text-secondary font-semibold">
                     ${formatCurrency(item.cost)}
@@ -200,8 +200,8 @@ export default function PriceCalculator({
               {/* Variable Cost Items Second */}
               {costs.variableCostItems.map(item => (
                 <div key={item.id} className="flex justify-between">
-                  <span className="text-muted">
-                    {item.name} {item.description}:
+                  <span className="text-muted pl-4">
+                    {item.name} {item.description}
                   </span>
                   <span className="text-secondary font-semibold">
                     ${formatCurrency(item.cost)}
