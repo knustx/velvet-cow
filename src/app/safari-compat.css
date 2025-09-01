@@ -167,6 +167,23 @@
     transition-duration: 150ms !important;
   }
   
+  .transition-transform {
+    transition-property: transform !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+  }
+  
+  .transition-all {
+    transition-property: all !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+  }
+  
+  /* Transform Scales */
+  .group:hover .group-hover\:scale-200 { transform: scale(2) !important; }
+  .hover\:scale-150:hover { transform: scale(1.2) !important; }
+  .hover\:scale-200:hover { transform: scale(2) !important; }
+  
   /* Hover States */
   .hover\:text-primary:hover { color: #D9AD77 !important; }
   .hover\:text-secondary:hover { color: #563a0e !important; }

@@ -2,9 +2,9 @@ import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 export default function SocialLinks() {
   const socialLinks = [
-    { name: "Facebook", url: "#", icon: FaFacebook },
+    { name: "Facebook", url: "https://www.facebook.com/people/The-Velvet-Cow-Brews-Booze/61579165239793/", icon: FaFacebook },
     { name: "TikTok", url: "#", icon: FaTiktok },
-    { name: "Instagram", url: "#", icon: FaInstagram }
+    { name: "Instagram", url: "https://www.instagram.com/thevelvetcowbrews/", icon: FaInstagram }
   ];
 
   return (
@@ -21,10 +21,10 @@ export default function SocialLinks() {
                 <a
                   key={index}
                   href={social.url}
-                  className="bg-primary text-secondary p-4 rounded-full hover:bg-light hover:text-secondary transition-colors group"
+                  className="bg-primary text-secondary p-4 rounded-full hover:bg-light hover:text-secondary transition-all hover:scale-150"
                   aria-label={social.name}
                 >
-                  <IconComponent size={24} className="transition-transform group-hover:scale-110" />
+                  <IconComponent size={24} />
                 </a>
               );
             })}
