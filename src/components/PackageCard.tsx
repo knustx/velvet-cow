@@ -7,6 +7,7 @@ interface PackageCardProps {
   footnotes?: string[];
   size?: '1x' | '2x' | '3x';
   selectable?: boolean;
+  selected?: boolean;
   onSelect?: () => void;
 }
 
@@ -17,21 +18,47 @@ export default function PackageCard({
   footnotes = [], 
   size = '1x', 
   selectable = true, 
+  selected = false,
   onSelect 
 }: PackageCardProps) {
   const is2x = size === '2x';
   const is3x = size === '3x';
   const isMultiCol = is2x || is3x;
-  const borderClass = isMultiCol ? 'border-primary' : 'border-muted hover:border-primary';
+  
+  // Determine border and background styling based on selection state
+  let borderClass, bgClass;
+  
+  if (isMultiCol) {
+    // Base package - always in selected state (gold background)
+    borderClass = 'border-primary';
+    bgClass = 'bg-primary';
+  } else if (selected) {
+    // Selected add-on package
+    borderClass = 'border-primary';
+    bgClass = 'bg-primary';
+  } else {
+    // Unselected add-on package
+    borderClass = 'border-muted hover:border-primary';
+    bgClass = 'bg-light hover:bg-gray-50';
+  }
   
   return (
-    <div className={`bg-light rounded-lg p-6 border-2 ${borderClass} ${!isMultiCol ? 'hover:border-primary' : ''} transition-colors h-full flex flex-col`}>
+    <div 
+      className={`${bgClass} rounded-lg p-6 border-2 ${borderClass} transition-colors h-full flex flex-col ${
+        selectable && !isMultiCol ? 'cursor-pointer' : 'cursor-default'
+      }`}
+      onClick={selectable && onSelect && !isMultiCol ? onSelect : undefined}
+    >
       <div className="flex-grow">
         <div className="text-center mb-4">
-          <h3 className="font-serif text-2xl font-bold text-secondary mb-2">
+          <h3 className={`font-serif text-2xl font-bold mb-2 ${
+            (selected && !isMultiCol) || isMultiCol ? 'text-secondary' : 'text-secondary'
+          }`}>
             {name}
           </h3>
-          <div className="text-2xl font-bold text-primary mb-4">
+          <div className={`text-2xl font-bold mb-4 ${
+            (selected && !isMultiCol) || isMultiCol ? 'text-secondary' : 'text-primary'
+          }`}>
             {price}
           </div>
         </div>
@@ -42,8 +69,8 @@ export default function PackageCard({
             {/* Left column - first half of features */}
             <ul className="font-sans space-y-2">
               {features.slice(0, Math.ceil(features.length / 2)).map((feature, index) => (
-                <li key={index} className="text-dark flex items-start text-base">
-                  <span className="text-primary mr-2 mt-1">•</span>
+                <li key={index} className="text-secondary flex items-start text-base">
+                  <span className="text-secondary mr-2 mt-1">•</span>
                   <span>{feature}</span>
                 </li>
               ))}
@@ -51,8 +78,8 @@ export default function PackageCard({
             {/* Right column - second half of features */}
             <ul className="font-sans space-y-2">
               {features.slice(Math.ceil(features.length / 2)).map((feature, index) => (
-                <li key={index + Math.ceil(features.length / 2)} className="text-dark flex items-start text-base">
-                  <span className="text-primary mr-2 mt-1">•</span>
+                <li key={index + Math.ceil(features.length / 2)} className="text-secondary flex items-start text-base">
+                  <span className="text-secondary mr-2 mt-1">•</span>
                   <span>{feature}</span>
                 </li>
               ))}
@@ -61,8 +88,12 @@ export default function PackageCard({
         ) : (
           <ul className="font-sans space-y-2">
             {features.map((feature, index) => (
-              <li key={index} className="text-dark flex items-start text-base">
-                <span className="text-primary mr-2 mt-1">✓</span>
+              <li key={index} className={`flex items-start text-base ${
+                selected ? 'text-secondary' : 'text-dark'
+              }`}>
+                <span className={`mr-2 mt-1 ${
+                  selected ? 'text-secondary' : 'text-primary'
+                }`}>✓</span>
                 <span>{feature}</span>
               </li>
             ))}
@@ -72,7 +103,9 @@ export default function PackageCard({
         {/* Footnotes - always single column, below features */}
         {footnotes.length > 0 && (
           <div className="mt-4 pt-3 border-t border-muted">
-            <div className="font-sans text-sm text-muted space-y-1">
+            <div className={`font-sans text-sm space-y-1 ${
+              (selected && !isMultiCol) || isMultiCol ? 'text-dark' : 'text-muted'
+            }`}>
               {footnotes.map((footnote, index) => (
                 <p key={index}>{footnote}</p>
               ))}
@@ -80,16 +113,6 @@ export default function PackageCard({
           </div>
         )}
       </div>
-      
-      {/* Only show button if selectable */}
-      {selectable && onSelect && (
-        <button 
-          onClick={onSelect}
-          className="w-full mt-4 bg-primary text-secondary font-sans font-semibold py-2 px-4 rounded hover:bg-secondary hover:text-primary transition-colors"
-        >
-          Choose Package
-        </button>
-      )}
     </div>
   );
 }
