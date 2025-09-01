@@ -46,6 +46,8 @@
   .px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
   .px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
   .px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+  .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
   .pl-4 { padding-left: 1rem !important; }
   .pt-2 { padding-top: 0.5rem !important; }
   .pt-3 { padding-top: 0.75rem !important; }
@@ -66,6 +68,7 @@
   .mt-6 { margin-top: 1.5rem !important; }
   .mt-8 { margin-top: 2rem !important; }
   .mt-16 { margin-top: 4rem !important; }
+  .mt-4 { margin-top: 1rem !important; }
   .mr-2 { margin-right: 0.5rem !important; }
   
   /* Gaps */
@@ -207,6 +210,7 @@
   .hover\:bg-light:hover { background-color: #F2F2F2 !important; }
   .hover\:bg-gray-50:hover { background-color: #f9fafb !important; }
   .hover\:border-primary:hover { border-color: #D9AD77 !important; }
+  .hover\:border-secondary:hover { border-color: #563a0e !important; }
   .hover\:underline:hover { text-decoration: underline !important; }
   .hover\:underline-offset-4:hover { text-underline-offset: 4px !important; }
   

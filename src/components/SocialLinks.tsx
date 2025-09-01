@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 export default function SocialLinks() {
   const socialLinks = [
     { name: "Facebook", url: "https://www.facebook.com/people/The-Velvet-Cow-Brews-Booze/61579165239793/", icon: FaFacebook },
-    { name: "TikTok", url: "#", icon: FaTiktok },
+    { name: "TikTok", url: "https://www.tiktok.com/@velvetcowbrewsandbooze", icon: FaTiktok },
     { name: "Instagram", url: "https://www.instagram.com/thevelvetcowbrews/", icon: FaInstagram }
   ];
 
