@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PackageCard from "@/components/PackageCard";
 import SectionDivider from "@/components/SectionDivider";
+import PriceCalculator from "@/components/PriceCalculator";
 
 export default function Packages() {
   // State to track which Brews & Booze Bundle is selected (default to first one - Brews & Vines)
@@ -243,8 +244,9 @@ export default function Packages() {
           </div>
           
           {/* Highland Premiums à la Carte */}
-          <div className="mt-16 pt-8 border-t border-muted">
-            <div className="text-center mb-8">
+          <div className="mt-16 pt-8">
+            <div className="max-w-4xl mx-auto border-t border-muted"></div>
+            <div className="text-center mb-8 pt-8">
               <h4 className="font-serif text-xl font-bold text-primary mb-2">
                 Highland Premiums à la Carte
               </h4>
@@ -303,6 +305,17 @@ export default function Packages() {
                   );
                 })}
               </div>
+              
+              {/* Divider before Event Estimate */}
+              <div className="mt-16 pt-8 border-t border-muted"></div>
+              
+              {/* Price Calculator */}
+              <PriceCalculator
+                selectedPackageIndex={selectedPackageIndex}
+                selectedPremiums={selectedPremiums}
+                drinkPackages={drinkPackages}
+                premiumItems={premiumItems}
+              />
             </div>
           </div>
         </div>
