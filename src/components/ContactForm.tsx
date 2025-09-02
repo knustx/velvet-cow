@@ -39,7 +39,7 @@ export default function ContactForm() {
             </h2>
             <SectionDivider />
             <p className="font-sans text-lg text-dark">
-              Ready to start your journey with us? We'd love to hear from you.
+              Ready to start your journey with us? We&apos;d love to hear from you.
             </p>
           </div>
           

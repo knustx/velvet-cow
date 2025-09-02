@@ -1,4 +1,4 @@
-import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { MdEmail, MdLocationOn } from 'react-icons/md';
 import { FaChevronRight } from 'react-icons/fa';
 
 export default function SiteMap() {
@@ -46,18 +46,12 @@ export default function SiteMap() {
             <div className="font-sans text-muted space-y-3">
               <div className="flex items-center gap-3">
                 <MdEmail size={20} className="text-primary" />
-                <span>hello@velvetcow.com</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <MdPhone size={20} className="text-primary" />
-                <span>(555) 123-4567</span>
+                <span>thevelvetcowbrews@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <MdLocationOn size={20} className="text-primary mt-1" />
                 <div>
-                  <div>123 Elegant Street</div>
-                  <div>Suite 456</div>
-                  <div>Premium City, PC 12345</div>
+                  <div>The Woodlands, TX</div>
                 </div>
               </div>
             </div>

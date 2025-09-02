@@ -23,8 +23,8 @@ export default function AboutUs() {
             </h3>
             <p className="font-sans text-lg text-dark leading-relaxed">
               Event planning can sometimes feel like herding cattle—lots of moving parts and details galore. 
-              That's where we come in. Velvet Cow Brew and Booze isn't just a mobile bartending service in 
-              The Woodlands & Houston; we're your partners in creating moments worth remembering.
+              That&apos;s where we come in. Velvet Cow Brew and Booze isn&apos;t just a mobile bartending service in
+              The Woodlands & Houston; we&apos;re your partners in creating moments worth remembering.
             </p>
           </div>
           
@@ -33,7 +33,7 @@ export default function AboutUs() {
               Straightforward Experience
             </h3>
             <p className="font-sans text-lg text-dark leading-relaxed">
-              We're committed to making event planning smooth and hassle-free. That's why we offer upfront, 
+              We&apos;re committed to making event planning smooth and hassle-free. That&apos;s why we offer upfront,
               competitive package pricing with accessible rates—so you always know what to expect, with zero 
               hidden fees or surprises. Our streamlined booking, with an easy-to-use form, makes the process 
               stress-free from start to finish.
@@ -67,7 +67,7 @@ export default function AboutUs() {
               Flexible, Personal Service
             </h3>
             <p className="font-sans text-lg text-dark leading-relaxed mb-4">
-              Simple never means rigid. Got unique ideas or special requests? We're eager to collaborate and 
+              Simple never means rigid. Got unique ideas or special requests? We&apos;re eager to collaborate and
               tailor our offerings to fit your vision. At Velvet Cow Brew and Booze, exceptional service meets 
               a personalized touch, letting you enjoy remarkable moments without the hassle.
             </p>
