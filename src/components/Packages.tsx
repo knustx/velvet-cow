@@ -295,7 +295,7 @@ export default function Packages() {
                             </span>
                           </div>
                           <p className={`font-sans text-xs leading-relaxed ${
-                            isSelected ? 'text-secondary' : 'text-muted'
+                            isSelected ? 'text-secondary font-bold' : 'text-muted'
                           }`}>
                             {item.description}
                           </p>

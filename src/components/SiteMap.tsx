@@ -35,10 +35,6 @@ export default function SiteMap() {
                 <FaChevronRight size={12} className="text-primary opacity-75 group-hover:opacity-100 transition-opacity" />
                 <span>Contact Us</span>
               </a>
-              <a href="#" className="flex items-center gap-2 text-muted hover:text-primary transition-colors group">
-                <FaChevronRight size={12} className="text-primary opacity-75 group-hover:opacity-100 transition-opacity" />
-                <span>Privacy Policy</span>
-              </a>
             </nav>
           </div>
           

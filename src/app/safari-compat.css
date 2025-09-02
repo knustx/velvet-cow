@@ -173,6 +173,7 @@
   .hidden { display: none !important; }
   .block { display: block !important; }
   .inline-block { display: inline-block !important; }
+  .inline-flex { display: inline-flex !important; }
   
   /* Position */
   .relative { position: relative !important; }
@@ -195,6 +196,10 @@
     transition-property: all !important;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
     transition-duration: 150ms !important;
+  }
+  
+  .duration-200 {
+    transition-duration: 200ms !important;
   }
   
   /* Transform Scales */

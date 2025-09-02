@@ -74,7 +74,7 @@ export default function PackageCard({
               {features.slice(0, Math.ceil(features.length / 2)).map((feature, index) => (
                 <li key={index} className="text-secondary flex items-start text-base">
                   <span className="text-secondary mr-2 mt-1">•</span>
-                  <span>{feature}</span>
+                  <span className="font-bold">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -83,7 +83,7 @@ export default function PackageCard({
               {features.slice(Math.ceil(features.length / 2)).map((feature, index) => (
                 <li key={index + Math.ceil(features.length / 2)} className="text-secondary flex items-start text-base">
                   <span className="text-secondary mr-2 mt-1">•</span>
-                  <span>{feature}</span>
+                  <span className="font-bold">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -97,7 +97,7 @@ export default function PackageCard({
                 <span className={`mr-2 mt-1 ${
                   selected ? 'text-secondary' : 'text-primary'
                 }`}>✓</span>
-                <span>{feature}</span>
+                <span className={selected ? 'font-bold' : ''}>{feature}</span>
               </li>
             ))}
           </ul>
