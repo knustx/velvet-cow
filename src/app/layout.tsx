@@ -16,6 +16,20 @@ const quattrocento = Quattrocento({
 export const metadata: Metadata = {
   title: "Velvet Cow",
   description: "A Next.js application built with Tailwind CSS",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/favicon.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
