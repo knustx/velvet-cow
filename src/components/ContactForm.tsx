@@ -7,6 +7,9 @@ export default function ContactForm() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const formatPhoneNumber = (value: string) => {
     // Remove all non-numeric characters
@@ -31,6 +34,55 @@ export default function ContactForm() {
     const formatted = formatPhoneNumber(e.target.value);
     setPhoneNumber(formatted);
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      const submitData = {
+        firstName: formData.get('firstName') as string,
+        lastName: formData.get('lastName') as string,
+        email: formData.get('email') as string,
+        phone: phoneNumber,
+        eventType: eventType,
+        eventDate: eventDate,
+        message: formData.get('message') as string,
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      (e.target as HTMLFormElement).reset();
+      setPhoneNumber('');
+      setEventType('');
+      setEventDate('');
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="contact" className="py-16 bg-light">
       <div className="container mx-auto px-4">
@@ -45,7 +97,7 @@ export default function ContactForm() {
             </p>
           </div>
           
-          <form className="grid md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="firstName" className="font-sans block text-dark mb-2">
                 First Name *
@@ -153,11 +205,44 @@ export default function ContactForm() {
             <div className="md:col-span-2 text-center">
               <button
                 type="submit"
-                className="bg-primary text-secondary font-sans font-semibold py-4 px-8 rounded hover:bg-secondary hover:text-primary transition-colors"
+                disabled={isSubmitting}
+                className={`font-sans font-semibold py-4 px-8 rounded transition-colors ${
+                  isSubmitting
+                    ? 'bg-muted text-dark cursor-not-allowed'
+                    : 'bg-primary text-secondary hover:bg-secondary hover:text-primary'
+                }`}
               >
-                Send Message
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </div>
+            
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="md:col-span-2 mt-4 p-4 bg-green-100 border-2 border-green-300 rounded text-center">
+                <p className="font-sans text-green-800 font-semibold">
+                  ✓ Thank you! Your message has been sent successfully. We'll get back to you soon!
+                </p>
+              </div>
+            )}
+            
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="md:col-span-2 mt-4 p-4 bg-red-100 border-2 border-red-300 rounded text-center">
+                <p className="font-sans text-red-800 font-semibold">
+                  ✗ {errorMessage || 'There was an error sending your message. Please try again.'}
+                </p>
+              </div>
+            )}
           </form>
         </div>
       </div>
