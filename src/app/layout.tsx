@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Quattrocento } from "next/font/google";
 import "./globals.css";
 import "./safari-compat.css";
+import "./universal-fallback.css";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
