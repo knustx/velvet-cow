@@ -151,7 +151,7 @@ export default function Packages() {
   };
 
   return (
-    <section id="packages" className="py-16 bg-background">
+    <section id="packages" className="py-16 bg-dark">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="font-serif text-4xl font-bold text-primary mb-8">
