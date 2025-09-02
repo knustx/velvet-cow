@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
+import SectionDivider from '@/components/SectionDivider';
 
 export default function SocialLinks() {
   const socialLinks = [
@@ -8,12 +9,13 @@ export default function SocialLinks() {
   ];
 
   return (
-    <section className="py-12 bg-secondary">
+    <section id="social" className="py-12 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <h3 className="font-serif text-2xl font-bold text-primary mb-8">
+          <h2 className="font-serif text-4xl font-bold text-primary mb-8">
             Follow Us
-          </h3>
+          </h2>
+          <SectionDivider />
           <div className="flex justify-center space-x-6">
             {socialLinks.map((social, index) => {
               const IconComponent = social.icon;

@@ -5,6 +5,8 @@ import SectionDivider from "@/components/SectionDivider";
 
 export default function ContactForm() {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [eventDate, setEventDate] = useState("");
 
   const formatPhoneNumber = (value: string) => {
     // Remove all non-numeric characters
@@ -94,6 +96,42 @@ export default function ContactForm() {
                 value={phoneNumber}
                 onChange={handlePhoneChange}
                 placeholder="(___) ___-____"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="eventType" className="font-sans block text-dark mb-2">
+                Event Type (optional)
+              </label>
+              <select
+                id="eventType"
+                name="eventType"
+                value={eventType}
+                onChange={(e) => setEventType(e.target.value)}
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark bg-white"
+              >
+                <option value="">Select an event type</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Festival">Festival</option>
+                <option value="Fundraiser">Fundraiser</option>
+                <option value="Tailgate">Tailgate</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Other Special Occasion">Other Special Occasion</option>
+              </select>
+            </div>
+            
+            <div>
+              <label htmlFor="eventDate" className="font-sans block text-dark mb-2">
+                Event Date (optional)
+              </label>
+              <input
+                type="date"
+                id="eventDate"
+                name="eventDate"
+                value={eventDate}
+                onChange={(e) => setEventDate(e.target.value)}
                 className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
               />
             </div>
