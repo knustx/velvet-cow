@@ -1,7 +1,9 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  /* Main Theme Colors */
+  /* Main Theme Colors - Used by Tailwind config */
   --primary: #D9AD77;      /* Warm gold/tan */
   --secondary: #563a0e;    /* Dark brown */
   --light: #F2F2F2;        /* Light gray */
@@ -16,28 +18,6 @@
   --border: var(--muted);
   --input: var(--light);
   --ring: var(--primary);
-}
-
-@theme inline {
-  /* Main Theme Colors */
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-light: var(--light);
-  --color-muted: var(--muted);
-  --color-dark: var(--dark);
-  
-  /* Semantic Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  
-  /* Fonts */
-  --font-sans: var(--font-quattrocento);   /* Body text font */
-  --font-serif: var(--font-cinzel);        /* Headings/display font */
 }
 
 @media (prefers-color-scheme: dark) {
