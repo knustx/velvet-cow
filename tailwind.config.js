@@ -15,9 +15,9 @@ module.exports = {
         muted: '#8C8C8C',        // Medium gray
         dark: '#313131',         // Dark gray
         
-        // Semantic Color Assignments
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        // Semantic Color Assignments (using direct values for production compatibility)
+        background: '#F2F2F2',  // Light gray - matches CSS custom property fallback
+        foreground: '#313131',  // Dark gray - matches CSS custom property fallback
         accent: {
           DEFAULT: '#D9AD77',
           foreground: '#563a0e',
