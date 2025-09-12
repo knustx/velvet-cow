@@ -23,6 +23,8 @@ export default function SocialLinks() {
                 <a
                   key={index}
                   href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-primary text-secondary p-4 rounded-full hover:bg-light hover:text-secondary transition-all hover:scale-150"
                   aria-label={social.name}
                 >

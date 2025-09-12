@@ -51,6 +51,7 @@ export default function ContactForm() {
         phone: phoneNumber,
         eventType: eventType,
         eventDate: eventDate,
+        venueInfo: formData.get('venueInfo') as string,
         message: formData.get('message') as string,
       };
 
@@ -189,6 +190,19 @@ export default function ContactForm() {
             </div>
             
             <div className="md:col-span-2">
+              <label htmlFor="venueInfo" className="font-sans block text-dark mb-2">
+                Venue Information (optional)
+              </label>
+              <input
+                type="text"
+                id="venueInfo"
+                name="venueInfo"
+                className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
+                placeholder="Event venue name, address, or location details"
+              />
+            </div>
+            
+            <div className="md:col-span-2">
               <label htmlFor="message" className="font-sans block text-dark mb-2">
                 Message *
               </label>
@@ -197,7 +211,7 @@ export default function ContactForm() {
                 name="message"
                 rows={6}
                 className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none resize-vertical text-dark"
-                placeholder="Let us know how we can tailor your experience to meet your unique needs..."
+                placeholder="Let us know your vision of how we can tailor your experience to meet your unique needs!"
                 required
               ></textarea>
             </div>

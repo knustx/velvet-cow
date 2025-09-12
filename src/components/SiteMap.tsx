@@ -1,4 +1,4 @@
-import { MdEmail, MdLocationOn } from 'react-icons/md';
+import { MdEmail, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
 import { FaChevronRight } from 'react-icons/fa';
 
 export default function SiteMap() {
@@ -45,8 +45,22 @@ export default function SiteMap() {
             </h4>
             <div className="font-sans text-muted space-y-3">
               <div className="flex items-center gap-3">
+                <MdPhoneIphone size={20} className="text-primary" />
+                <a 
+                  href="tel:+13462661346" 
+                  className="hover:text-primary transition-colors"
+                >
+                  (346) 266-1346
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
                 <MdEmail size={20} className="text-primary" />
-                <span>thevelvetcowbrews@gmail.com</span>
+                <a 
+                  href="mailto:info@velvet-cow.com" 
+                  className="hover:text-primary transition-colors"
+                >
+                  info@velvet-cow.com
+                </a>
               </div>
               <div className="flex items-start gap-3">
                 <MdLocationOn size={20} className="text-primary mt-1" />
@@ -60,7 +74,7 @@ export default function SiteMap() {
         
         <div className="border-t border-muted mt-8 pt-8 text-center">
           <p className="font-sans text-muted">
-            © 2024 Velvet Cow. All rights reserved.
+            © 2025 Velvet Cow. All rights reserved.
           </p>
         </div>
       </div>
