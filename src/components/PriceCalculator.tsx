@@ -291,7 +291,7 @@ export default function PriceCalculator({
       costs.grandTotal, 
       selectedPackage.name,
       selectedAddonNames,
-      navigator.share ? 'native_share' : 'clipboard'
+      typeof navigator.share === 'function' ? 'native_share' : 'clipboard'
     );
     
     // Track price calculation event
