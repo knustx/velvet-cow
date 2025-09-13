@@ -4,6 +4,7 @@ import { useState } from "react";
 import PackageCard from "@/components/PackageCard";
 import SectionDivider from "@/components/SectionDivider";
 import PriceCalculator from "@/components/PriceCalculator";
+import { trackPackageSelection, trackAddonSelection } from "@/lib/analytics";
 
 export default function Packages() {
   // State to track which Brews & Booze Bundle is selected (default to first one - Brews & Vines)
@@ -136,18 +137,32 @@ export default function Packages() {
 
   const handlePackageSelect = (packageIndex: number) => {
     setSelectedPackageIndex(packageIndex);
-    console.log(`Selected package: ${drinkPackages[packageIndex].name}`);
+    const selectedPackage = drinkPackages[packageIndex];
+    console.log(`Selected package: ${selectedPackage.name}`);
+    
+    // Track package selection in GA4
+    trackPackageSelection(selectedPackage.name, packageIndex, selectedPackage.price);
   };
 
   const handlePremiumToggle = (itemId: string) => {
     const newSelected = new Set(selectedPremiums);
-    if (newSelected.has(itemId)) {
+    const wasSelected = newSelected.has(itemId);
+    const isNowSelected = !wasSelected;
+    
+    if (wasSelected) {
       newSelected.delete(itemId);
     } else {
       newSelected.add(itemId);
     }
+    
     setSelectedPremiums(newSelected);
     console.log('Selected premiums:', Array.from(newSelected));
+    
+    // Track add-on selection in GA4
+    const premiumItem = premiumItems.find(item => item.id === itemId);
+    if (premiumItem) {
+      trackAddonSelection(premiumItem.name, itemId, premiumItem.price, isNowSelected);
+    }
   };
 
   return (

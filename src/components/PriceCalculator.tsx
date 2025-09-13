@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MdOutlineIosShare } from "react-icons/md";
+import { trackQuoteShare, trackGuestCountChange, trackPriceCalculation } from "@/lib/analytics";
 
 interface PremiumItem {
   id: string;
@@ -31,6 +32,7 @@ export default function PriceCalculator({
   premiumItems
 }: PriceCalculatorProps) {
   const [guestCount, setGuestCount] = useState<number>(50);
+  const [previousGuestCount, setPreviousGuestCount] = useState<number>(50);
 
   // Extract numeric price from price string (e.g., "$4 per Guest" -> 4)
   const extractPrice = (priceString: string): number => {
@@ -111,7 +113,13 @@ export default function PriceCalculator({
 
   const handleGuestCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value) || 0;
-    setGuestCount(Math.max(1, value)); // Ensure minimum of 1 guest
+    const newGuestCount = Math.max(1, value); // Ensure minimum of 1 guest
+    
+    // Track guest count changes
+    trackGuestCountChange(newGuestCount, previousGuestCount);
+    
+    setPreviousGuestCount(guestCount);
+    setGuestCount(newGuestCount);
   };
 
   const costs = calculateCosts();
@@ -271,6 +279,28 @@ export default function PriceCalculator({
   // Handle share button click
   const handleShare = async () => {
     const textContent = generateShareableText();
+    const selectedPackage = drinkPackages[selectedPackageIndex];
+    const selectedAddonNames = Array.from(selectedPremiums).map(id => {
+      const item = premiumItems.find(item => item.id === id);
+      return item ? item.name : '';
+    }).filter(name => name);
+    
+    // Track the quote share event
+    trackQuoteShare(
+      guestCount, 
+      costs.grandTotal, 
+      selectedPackage.name,
+      selectedAddonNames,
+      navigator.share ? 'native_share' : 'clipboard'
+    );
+    
+    // Track price calculation event
+    trackPriceCalculation(
+      guestCount,
+      selectedPackage.name,
+      costs.grandTotal,
+      selectedAddonNames.length
+    );
     
     if (navigator.share) {
       try {

@@ -48,7 +48,33 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-M7TT0LZP6H');
+              
+              // Enhanced GA4 configuration for ecommerce tracking
+              gtag('config', 'G-M7TT0LZP6H', {
+                // Enable enhanced ecommerce
+                send_page_view: true,
+                enhanced_ecommerce: true,
+                // Custom event tracking settings
+                custom_map: {
+                  'custom_parameter_1': 'package_selection',
+                  'custom_parameter_2': 'addon_selection',
+                  'custom_parameter_3': 'quote_sharing'
+                },
+                // Track engagement events
+                engagement_time_msec: 100,
+                // Debug mode for development (remove in production)
+                debug_mode: ${process.env.NODE_ENV === 'development'}
+              });
+              
+              // Track initial page load
+              gtag('event', 'page_view', {
+                page_title: 'Velvet Cow - Event Planning',
+                page_location: window.location.href,
+                custom_parameters: {
+                  section: 'homepage',
+                  timestamp: new Date().toISOString()
+                }
+              });
             `,
           }}
         />

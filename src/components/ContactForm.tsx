@@ -133,6 +133,7 @@ export default function ContactForm() {
                 type="email"
                 id="email"
                 name="email"
+                autoComplete="email"
                 className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
                 required
               />
@@ -149,6 +150,7 @@ export default function ContactForm() {
                 value={phoneNumber}
                 onChange={handlePhoneChange}
                 placeholder="(___) ___-____"
+                autoComplete="tel"
                 className="w-full p-3 border-2 border-muted rounded focus:border-primary focus:outline-none text-dark"
               />
             </div>
