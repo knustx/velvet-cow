@@ -1,0 +1,25 @@
+# Robots.txt for Velvet Cow Brew and Booze
+# Mobile Bartending Services in The Woodlands & Houston
+
+User-agent: *
+Allow: /
+
+# Allow all crawlers to access important pages
+Allow: /sitemap.xml
+Allow: /favicon.ico
+Allow: /logo.png
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.webp
+
+# Block crawlers from admin or private areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.velvet-cow.com/sitemap.xml
+
+# Crawl-delay (optional - helps prevent overwhelming your server)
+Crawl-delay: 1
